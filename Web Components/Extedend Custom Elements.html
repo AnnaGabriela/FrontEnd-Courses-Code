@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Extended Custom Elements</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+
+	<body>
+        <button is="pluralsight-button"></button>
+                
+        <script>
+            var Proto = Object.create(HTMLButtonElement.prototype);
+            
+            Proto.createdCallback = function () {
+                this.innerHTML = "Pluralsight Button";
+                this.value = "Defalt Value";
+                this.style.color = "pink";
+            }
+            
+            var PluralsightButton = document.registerElement('pluralsight-button', {
+                prototype: Proto,
+                extends: 'button'
+            });
+        </script>
+        
+        
+	</body>
+</html>

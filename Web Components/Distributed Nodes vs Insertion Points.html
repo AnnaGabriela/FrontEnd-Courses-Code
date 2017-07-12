@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Distributed Nodes vs Insertion Points</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+	<body>
+	    <div>
+	        <h1>Header defined in the Light DOM</h1>
+	    </div>
+	
+	
+	    <script>
+            var root = document.querySelector('div').createShadowRoot();
+            root.innerHTML = '<content select="h1"></content>'
+            
+            console.log(document.querySelector('h1'));
+            console.log(document.querySelector('content h1'));
+        </script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Styling Shadow DOM</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+	<body>
+        <div id="host">
+            <p>My host is styled via :host selector.</p>
+        </div>
+        
+        <template>
+            <style>
+                :host {
+                    border: 1px solid pink;
+                }
+            </style>
+            <content></content>
+        </template>
+        
+        <script>
+            var host = document.querySelector('#host');
+            var root = host.createShadowRoot();
+            var template = document.querySelector('template');
+            root.appendChild(template.content);
+        
+        </script>
+        
+	</body>
+</html>

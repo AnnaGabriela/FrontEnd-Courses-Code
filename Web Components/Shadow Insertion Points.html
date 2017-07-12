@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Shadow Insertion Points</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+	</head>
+	<body>
+        <div id="host">
+            Light DOM
+        </div>
+        
+        <script>
+            var host = document.querySelector('#host');
+            var root1 = host.createShadowRoot();
+            var root2 = host.createShadowRoot();
+            //var root3 = host.createShadowRoot();
+            root1.innerHTML = '<div>Root 1</div>';
+            root2.innerHTML = '<shadow></shadow><span>Root 2</span>';
+        </script>
+	</body>
+</html>

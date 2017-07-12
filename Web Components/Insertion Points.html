@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Insertion Points</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+</head>
+
+<body>
+    <comment-form>
+        <h1>Olar mundão</h1>
+        <p class="instructions">Preencha esse coisa aqui.</p>
+        <footer>Teste de footer</footer>
+    </comment-form>
+
+    <template>
+            <fieldset>
+                <legend>
+                    <content select="h1"></content>
+                </legend>
+                
+                <content select="p.instructions"></content>
+                
+                <textarea style="width:200px; height: 100px;"></textarea><br>
+                
+                <input type="submit" value="Submit Comment">
+                
+                <content select="footer"></content>
+            </fieldset>
+        </template>
+
+    <script>
+        var CommentProto = Object.create(HTMLElement.prototype);
+        CommentProto.createdCallback = function() {
+            var template = document.querySelector('template');
+            var shadow = this.createShadowRoot();
+            shadow.appendChild(document.importNode(template.content, true));
+        }
+        document.registerElement('comment-form', {
+            prototype: CommentProto
+        });
+    </script>
+
+</body>
+
+</html>
