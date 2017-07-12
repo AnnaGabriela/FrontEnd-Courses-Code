@@ -1,0 +1,28 @@
+<template> 
+    <style>
+        ::content h1 {color:coral;}
+        ::content h2 {color: firebrick;}
+        ::content audio {width: 50%;}
+        ::content img {width: 300px;}
+    </style>
+    
+    <content select="img"></content>
+    <content select="h1"></content>
+    <content select="h2"></content>
+    <audio controls></audio>
+</template>
+
+<script>
+    var MyPlayer = Object.create(HTMLElement.prototype);
+    var importDoc = document.currentScript.ownerDocument; //store ref to this doc
+    
+    MyPlayer.createdCallback = function() {
+        var template = importDoc.querySelector('template');
+        var templateClone = document.importNode(template.content, true);
+        var root = this.createShadowRoot();
+        root.appendChild(templateClone);
+    }
+    document.registerElement('my-player', {
+        prototype: MyPlayer
+    });
+</script>

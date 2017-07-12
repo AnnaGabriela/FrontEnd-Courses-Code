@@ -1,0 +1,17 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>HTML Imports</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+		<link rel="import" href="fav-bands.html" id="fav-bands">
+	</head>
+	<body>
+        <script>
+            var content = document.querySelector('#fav-bands').import;
+            var bandList = content.querySelector('ul');
+            document.body.appendChild('bandlist');
+        </script>        
+	</body>
+</html>
