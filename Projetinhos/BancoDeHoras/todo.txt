@@ -1,0 +1,5 @@
+- Implementar funções para add na tabela
+- Criar um db
+- Criar nova tabela toda semana e ao fim da tabela ter valor de horas cumpridas e devendo
+- No fim da pag ter as horas que esta devendo no total
+
